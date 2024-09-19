@@ -8,6 +8,10 @@
 <h1><%= "Hello World!" %>
 </h1>
 <br/>
-<a href="bobross">Bob Ross?</a>
+<a href="bobross">Bob Ross?</a><br>
+<a href="sort-servlet">Sort array of numbers</a><br>
+<a href="calculator">Calculator</a><br>
+<a href="text">Text</a><br>
+<a href="notes">Notes</a><br>
 </body>
 </html>
