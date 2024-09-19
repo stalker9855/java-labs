@@ -13,5 +13,7 @@
 <a href="calculator">Calculator</a><br>
 <a href="text">Text</a><br>
 <a href="notes">Notes</a><br>
+<a href="date.jsp">Current Date</a><br>
+<a href="value.jsp">Value</a>
 </body>
 </html>
