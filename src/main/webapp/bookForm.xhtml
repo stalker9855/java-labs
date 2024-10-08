@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+    <title>Name of Book</title>
+</h:head>
+<h:body>
+    <h2>Add new Book</h2>
+    <h:form>
+        <h:outputLabel value="Book's Name:" for="newTitle" />
+        <h:inputText id="newTitle" value="#{bookBean.newTitle}" required="true" requiredMessage="Enter book">
+            <f:validateLength minimum="3" />
+        </h:inputText>
+        <h:message for="newTitle" style="color: red;" />
+
+        <h:outputLabel value="Book's Author:" for="newAuthor" />
+        <h:inputText id="newAuthor" value="#{bookBean.newAuthor}" required="true" requiredMessage="Enter author's name">
+            <f:validateLength minimum="3" />
+        </h:inputText>
+        <h:message for="newAuthor" style="color: red;" />
+
+        <h:commandButton value="Add" action="#{bookBean.addBook}" />
+    </h:form>
+</h:body>
+</html>

@@ -1,0 +1,12 @@
+target/
+src/main/jbake/content/toc.adoc
+
+.settings/
+*.classpath
+*.project
+
+
+.idea/
+*.iml
+
+.DS_Store
