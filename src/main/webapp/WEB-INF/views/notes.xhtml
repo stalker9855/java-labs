@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<head>
+    <title>Notes</title>
+</head>
+
+<body>
+
+<h1>Notes</h1>
+
+<h:form>
+    <h2>Create a New Note</h2>
+    <h:outputLabel for="title" value="Title: " />
+    <h:inputText id="title" value="#{noteController.newNote.title}" required="true" />
+
+    <h:outputLabel for="description" value="Description: " />
+    <h:inputText id="description" value="#{noteController.newNote.description}" required="true" />
+
+    <h:commandButton value="Create Note" action="#{noteController.createNote}" />
+</h:form>
+
+<h2>List of Notes</h2>
+<h:dataTable value="#{noteController.notes}" var="note">
+    <h:column>
+        <f:facet name="header">Title</f:facet>
+        #{note.title}
+    </h:column>
+    <h:column>
+        <f:facet name="header">Description</f:facet>
+        #{note.description}
+    </h:column>
+    <h:column>
+        <f:facet name="header">Created At</f:facet>
+        #{note.createdAt}
+    </h:column>
+</h:dataTable>
+
+</body>
+</html>
