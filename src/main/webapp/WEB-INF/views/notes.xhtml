@@ -11,19 +11,20 @@
 
 <h1>Notes</h1>
 
-<h:form>
+<h:form id="form" method="post" action="#{mvc.basePath}/notes">
     <h2>Create a New Note</h2>
+    
     <h:outputLabel for="title" value="Title: " />
     <h:inputText id="title" value="#{noteController.newNote.title}" required="true" />
 
     <h:outputLabel for="description" value="Description: " />
     <h:inputText id="description" value="#{noteController.newNote.description}" required="true" />
 
-    <h:commandButton value="Create Note" action="#{noteController.createNote}" />
+    <h:commandButton value="Create Note" />
 </h:form>
 
 <h2>List of Notes</h2>
-<h:dataTable value="#{noteController.notes}" var="note">
+<h:dataTable value="#{notes}" var="note">
     <h:column>
         <f:facet name="header">Title</f:facet>
         #{note.title}

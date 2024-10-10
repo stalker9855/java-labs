@@ -9,7 +9,4 @@ import jakarta.ws.rs.core.Application;
 
 @ApplicationPath("mvc")
 public class MvcConfig extends Application {
-    public Set<Class<?>> getClasses() {
-        return Set.of(NoteController.class);
-    }
 }

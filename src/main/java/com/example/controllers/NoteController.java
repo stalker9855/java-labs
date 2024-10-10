@@ -32,12 +32,6 @@ public class NoteController {
     @Inject
     private Models models;
 
-    private Note newNote = new Note("", "");
-
-    public Note getNewNote() {
-        return newNote;
-    }
-
     @GET
     public String getNotes() {
         List<Note> notes = noteContainer.getNotes();
@@ -47,8 +41,9 @@ public class NoteController {
 
     @POST
     public Response createNote() {
-        noteContainer.addNotes(newNote);
-        newNote = new Note("", ""); // Reset the form
+        Note note = new Note("Hello", "Bob Ross");
+        noteContainer.addNotes(note);
+        System.out.println("Added");
         return Response.ok("redirect:notes").build();
     }
 }
