@@ -46,8 +46,8 @@
     </h:column>
     <h:column>
         <f:facet name="header">Actions</f:facet>
-        <form action="#{mvc.basePath}/notes/#{note.id}" method="post">
-            <input type="hidden" name="_method" value="DELETE" ></input>
+        <form action="#{mvc.basePath}/notes/deleteNote" method="post">
+            <input type="hidden" name="id" value="#{note.id}" ></input>
             <button type="submit">Delete</button>
         </form>
     </h:column>

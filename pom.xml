@@ -46,6 +46,11 @@
             <artifactId>krazo-mustache</artifactId>
             <version>1.0.0</version>
         </dependency>
+        <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <version>42.7.4</version>
+        </dependency>
   </dependencies>
   <build>
     <finalName>java</finalName>

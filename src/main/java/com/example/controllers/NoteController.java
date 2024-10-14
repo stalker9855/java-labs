@@ -7,6 +7,7 @@ import jakarta.mvc.Models;
 import jakarta.mvc.View;
 import jakarta.websocket.server.PathParam;
 import jakarta.ws.rs.FormParam;
+import jakarta.ws.rs.Consumes;
 import jakarta.ws.rs.DELETE;
 import jakarta.ws.rs.POST;
 import jakarta.ws.rs.GET;
@@ -45,9 +46,9 @@ public class NoteController {
         return Response.ok("redirect:notes").build();
     }
 
-    @DELETE
+    @POST
     @Path("{id}")
-    public Response deleteNote(@PathParam("id") int id) {
+    public Response deleteNote(@FormParam("id") int id) {
         noteContainer.deleteById(id);
         System.out.println("Deleted");
         return Response.ok("redirect:notes").build();
