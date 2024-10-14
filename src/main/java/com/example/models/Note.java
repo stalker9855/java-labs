@@ -3,14 +3,22 @@ package com.example.models;
 import java.time.LocalDate;
 
 public class Note {
+
+    private static int idCounter = 1;
+    private int id;
     private String title;
     private String description;
     private LocalDate createdAt;
 
     public Note(String title, String description) {
+        this.id = idCounter++;
         this.title = title;
         this.description = description;
         this.createdAt = LocalDate.now();
+    }
+
+    public int getId() {
+        return id;
     }
 
     public String getTitle() {

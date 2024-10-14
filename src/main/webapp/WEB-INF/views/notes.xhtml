@@ -1,9 +1,12 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:c="http://java.sun.com/jsp/jstl/core"
+      >
 
 <head>
+    <meta charset="utf-8"/>
     <title>Notes</title>
 </head>
 
@@ -11,20 +14,24 @@
 
 <h1>Notes</h1>
 
-<h:form id="form" method="post" action="#{mvc.basePath}/notes">
+<form id="form" role="post" action="" method="post">
     <h2>Create a New Note</h2>
     
-    <h:outputLabel for="title" value="Title: " />
-    <h:inputText id="title" value="#{noteController.newNote.title}" required="true" />
+    <label for="title" value="Title: " />
+    <input id="newTitle" name="newTitle" required="true" />
 
-    <h:outputLabel for="description" value="Description: " />
-    <h:inputText id="description" value="#{noteController.newNote.description}" required="true" />
+    <label for="description" value="Description: " />
+    <input id="newDescription" name="newDescription" required="true" />
 
-    <h:commandButton value="Create Note" />
-</h:form>
+    <button type="submit">Create note</button>
+</form>
 
 <h2>List of Notes</h2>
 <h:dataTable value="#{notes}" var="note">
+    <h:column>
+        <f:facet name="header">Title</f:facet>
+        #{note.id}
+    </h:column>
     <h:column>
         <f:facet name="header">Title</f:facet>
         #{note.title}
@@ -37,6 +44,14 @@
         <f:facet name="header">Created At</f:facet>
         #{note.createdAt}
     </h:column>
+    <h:column>
+        <f:facet name="header">Actions</f:facet>
+        <form action="#{mvc.basePath}/notes/#{note.id}" method="post">
+            <input type="hidden" name="_method" value="DELETE" ></input>
+            <button type="submit">Delete</button>
+        </form>
+    </h:column>
+
 </h:dataTable>
 
 </body>

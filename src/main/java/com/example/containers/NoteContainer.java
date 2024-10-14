@@ -24,4 +24,8 @@ public class NoteContainer {
     public void clearNotes() {
         notes.clear();
     }
+
+    public void deleteById(int id) {
+        notes.removeIf(note -> note.getId() == id);
+    }
 }
