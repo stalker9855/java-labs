@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:c="http://java.sun.com/jsp/jstl/core"
+      >
+<head>
+    <title>Books</title>
+</head>
+<body>
+    <h1>Books List</h1>
+    <h:dataTable value="#{books}" var="book">
+        <h:column>
+            <f:facet name="header">ID</f:facet>
+            #{book.id}
+        </h:column>
+        <h:column>
+            <f:facet name="header">Title</f:facet>
+            #{book.title}
+        </h:column>
+        <h:column>
+            <f:facet name="header">Description</f:facet>
+            #{book.description}
+        </h:column>
+    </h:dataTable>
+</body>
+</html>
