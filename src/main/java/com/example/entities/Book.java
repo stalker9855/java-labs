@@ -7,7 +7,8 @@ import jakarta.validation.constraints.NotNull;
 @Entity
 @Table(name = "\"books\"")
 @NamedQueries({
-        @NamedQuery(name = "Book.findAllBooks", query = "SELECT b FROM Book b ORDER BY b.id ASC")
+        @NamedQuery(name = "Book.findAllBooks", query = "SELECT b FROM Book b ORDER BY b.id ASC"),
+        @NamedQuery(name = "Book.findByTitle", query = "SELECT b FROM Book b WHERE b.title = :title")
 })
 public class Book {
 
