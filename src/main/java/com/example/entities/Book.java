@@ -1,6 +1,8 @@
 package com.example.entities;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "\"books\"")
@@ -13,11 +15,17 @@ public class Book {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @NotNull
+    @NotBlank
+    @NotNull(message = "Title is required")
     private String title;
 
+    @NotNull(message = "Description is required")
+    @NotBlank
     private String description;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @NotNull(message = "Author is required")
+    @OneToOne
     @JoinColumn(name = "author_id", referencedColumnName = "id")
     private Author author;
 

@@ -4,6 +4,9 @@ import jakarta.persistence.*;
 
 @Entity
 @Table(name = "\"authors\"")
+@NamedQueries({
+        @NamedQuery(name = "Author.findAllBooks", query = "SELECT b FROM Author b ORDER BY b.id ASC")
+})
 public class Author {
 
     @Id
