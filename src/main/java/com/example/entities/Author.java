@@ -1,5 +1,6 @@
 package com.example.entities;
 
+import java.util.List;
 import jakarta.persistence.*;
 
 @Entity
@@ -15,8 +16,8 @@ public class Author {
 
     private String name;
 
-    @OneToOne(mappedBy = "author")
-    private Book book;
+    @OneToMany(mappedBy = "author", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Book> books;
 
     public Long getId() {
         return id;
@@ -34,11 +35,11 @@ public class Author {
         this.name = name;
     }
 
-    public Book getBook() {
-        return book;
+    public List<Book> getBooks() {
+        return books;
     }
 
-    public void setBook(Book book) {
-        this.book = book;
+    public void setBooks(List<Book> books) {
+        this.books = books;
     }
 }

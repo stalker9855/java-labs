@@ -15,12 +15,16 @@ import jakarta.ws.rs.Path;
 import jakarta.ws.rs.PathParam;
 import jakarta.ws.rs.core.Response;
 
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Optional;
 import java.util.List;
 
 import com.example.entities.Author;
 import com.example.entities.Book;
 import com.example.services.AuthorService;
 import com.example.services.BookService;
+import com.example.services.RateService;
 
 @Path("books")
 @Controller
@@ -34,6 +38,9 @@ public class BookController {
   private AuthorService authorService;
 
   @Inject
+  private RateService rateService;
+
+  @Inject
   private Models models;
 
   @GET
@@ -41,8 +48,19 @@ public class BookController {
   public void showAllBooks() {
     List<Book> books = bookService.findAllBooks();
     List<Author> authors = authorService.findAllAuthors();
+    Map<Long, Integer> booksCountByAuthor = authorService.sumBooksByAuthor();
+
+    Map<Long, Double> avgRatings = new HashMap<>();
+
+    for (Book book : books) {
+      Optional<Double> avgRating = rateService.avgRatingBook(book.getId());
+      avgRatings.put(book.getId(), avgRating.orElse(0.0));
+    }
+
     models.put("authors", authors);
     models.put("books", books);
+    models.put("avgRatings", avgRatings);
+    models.put("booksCountByAuthor", booksCountByAuthor);
   }
 
   @GET
