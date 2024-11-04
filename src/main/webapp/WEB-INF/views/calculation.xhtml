@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmls="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Calculation</title>
+</head>
+<body>
+    <h1>Calculation Page</h1>
+    
+    <form action="#{mvc.basePath}/calculation/add" method="post">
+        <label for="number">Enter a number to add:</label>
+        <input type="number" id="number" name="number" value="0" />
+        <button type="submit">Add</button>
+    </form>
+    
+    <form action="#{mvc.basePath}/calculation/subtract" method="post">
+        <label for="number">Enter a number to subtract:</label>
+        <input type="number" id="number" name="number" value="0" />
+        <button type="submit">Subtract</button>
+    </form>
+    
+    <p>Current Result: #{currentResult}</p>
+</body>
+</html>
