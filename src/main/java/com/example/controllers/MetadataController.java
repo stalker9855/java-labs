@@ -35,50 +35,50 @@ public class MetadataController {
   @Inject
   private BeanManager beanManager;
 
-@GET
-    @Path("{beanName}")
-    @View("metadata.xhtml")
-    public void showMetadata(@PathParam("beanName") String beanName) {
-Set<Bean<?>> beans = metadataBean.getBeans(); 
+  @GET
+  @Path("{beanName}")
+  @View("metadata.xhtml")
+  public void showMetadata(@PathParam("beanName") String beanName) {
+    Set<Bean<?>> beans = metadataBean.getBeans();
 
-        Map<String, String> metadata = new HashMap<>();
-        boolean found = false;
+    Map<String, String> metadata = new HashMap<>();
+    boolean found = false;
 
-        for (Bean<?> bean : beans) {
-            String beanNameFromBean = bean.getName();
-            if (beanNameFromBean != null && beanNameFromBean.equals(beanName)) {
-                Class<?> beanClass = bean.getBeanClass();
+    for (Bean<?> bean : beans) {
+      String beanNameFromBean = bean.getName();
+      if (beanNameFromBean != null && beanNameFromBean.equals(beanName)) {
+        Class<?> beanClass = bean.getBeanClass();
 
-                StringBuilder fieldsInfo = new StringBuilder();
-                for (Field field : beanClass.getDeclaredFields()) {
-                    fieldsInfo.append(field.getName()).append(" (").append(field.getType().getName()).append(")\n");
-                }
-
-                StringBuilder methodsInfo = new StringBuilder();
-                for (Method method : beanClass.getDeclaredMethods()) {
-                    methodsInfo.append(method.getName()).append(" (");
-                    String params = Arrays.stream(method.getParameterTypes())
-                            .map(Class::getName)
-                            .collect(Collectors.joining(", "));
-                    methodsInfo.append(params).append(")\n");
-                }
-
-                String beanInfo = "Scope: " + bean.getScope().getName() +
-                                  "\nClass: " + bean.getBeanClass().getName() +
-                                  "\nFields:\n" + fieldsInfo.toString() +
-                                  "\nMethods:\n" + methodsInfo.toString();
-                
-                metadata.put(beanNameFromBean, beanInfo); 
-                found = true;
-                break; 
-            }
+        StringBuilder fieldsInfo = new StringBuilder();
+        for (Field field : beanClass.getDeclaredFields()) {
+          fieldsInfo.append(field.getName()).append(" (").append(field.getType().getName()).append(")\n");
         }
 
-        if (!found) {
-            metadata.put(beanName, "No such bean found.");
+        StringBuilder methodsInfo = new StringBuilder();
+        for (Method method : beanClass.getDeclaredMethods()) {
+          methodsInfo.append(method.getName()).append(" (");
+          String params = Arrays.stream(method.getParameterTypes())
+              .map(Class::getName)
+              .collect(Collectors.joining(", "));
+          methodsInfo.append(params).append(")\n");
         }
 
-        models.put("metadata", metadata);
+        String beanInfo = "Scope: " + bean.getScope().getName() +
+            "\nClass: " + bean.getBeanClass().getName() +
+            "\nFields:\n" + fieldsInfo.toString() +
+            "\nMethods:\n" + methodsInfo.toString();
+
+        metadata.put(beanNameFromBean, beanInfo);
+        found = true;
+        break;
+      }
     }
+
+    if (!found) {
+      metadata.put(beanName, "No such bean found.");
+    }
+
+    models.put("metadata", metadata);
+  }
 
 }
