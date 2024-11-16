@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+<h:head>
+    <title>Send Message</title>
+</h:head>
+<body>
+    <h:form>
+        <h:outputLabel for="filter" value="Filter (optional):" />
+        <h:inputText id="filter" value="#{messageSenderBean.filter}" />
+
+        <h:outputLabel for="messageText" value="Message Text:" />
+        <h:inputText id="messageText" value="#{messageSenderBean.messageText}" />
+
+        <h:commandButton value="Send Message" action="#{messageSenderBean.sendMessage}" />
+    </h:form>
+</body>
+</html>

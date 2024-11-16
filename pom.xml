@@ -45,10 +45,22 @@
             <artifactId>krazo-mustache</artifactId>
             <version>1.0.0</version>
         </dependency>
+    <dependency>
+      <groupId>org.glassfish.jersey.media</groupId>
+      <artifactId>jersey-media-json-jackson</artifactId>
+      <version>2.17</version>
+      </dependency>
+    <dependency>
+      <groupId>jakarta.jms</groupId>
+      <artifactId>jakarta.jms-api</artifactId>
+      <version>3.1.0</version>
+
+      </dependency>
+<!-- https://mvnrepository.com/artifact/org.glassfish.mq/imqjmsra -->
 <dependency>
-    <groupId>org.glassfish.jersey.media</groupId>
-    <artifactId>jersey-media-json-jackson</artifactId>
-    <version>2.17</version>
+    <groupId>org.glassfish.mq</groupId>
+    <artifactId>imqjmsra</artifactId>
+    <version>5.0</version>
 </dependency>
   </dependencies>
   <build>

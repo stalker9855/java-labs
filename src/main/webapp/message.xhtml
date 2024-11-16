@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+<h:head>
+    <title>Notifications</title>
+</h:head>
+<body>
+    <h:form>
+        <h:commandButton value="Update" action="#{messageReceiverBean.receiveMessage}" />
+        
+        <h:outputText value="Last message: #{messageReceiverBean.lastMessage}" />
+    </h:form>
+</body>
+</html>
