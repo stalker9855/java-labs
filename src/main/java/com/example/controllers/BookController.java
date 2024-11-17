@@ -120,8 +120,6 @@ public class BookController {
       return Response.status(Response.Status.NOT_FOUND).entity("Book not found").build();
     }
 
-    System.out.println("AUTHOR ID" + book.getAuthor().getId());
-    System.out.println(book.getId());
     bookService.deleteBook(id);
     return Response.ok("redirect:books").build();
   }

@@ -33,11 +33,11 @@
                 </h:column>
                 <h:column>
                     <f:facet name="header">Actions</f:facet>
-                    <h:link value="Edit" outcome="/books/#{book.id}/bookEdit" />
-                    <h:form>
-                        <input type="hidden" name="_method" value="DELETE" />
-                        <h:commandButton value="Delete" action="#{bookController.deleteBook(book.id)}" />
-                    </h:form>
+                    <a href="#{mvc.basePath}/books/#{book.id}/bookEdit">Edit</a>
+                    <form action="#{mvc.basePath}/books/#{book.id}" method="post">
+                      <input type="hidden" name="_method" value="DELETE" ></input>
+                      <button type="submit">Delete</button>
+                    </form>
                 </h:column>
             </h:dataTable>
         </h:form>
