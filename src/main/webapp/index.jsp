@@ -5,5 +5,8 @@
 <a href="mvc/users" >Users</a><br>
 <a href="mvc/calculation" >Calculation</a><br>
 <a href="mvc/metadata" >Metadata</a><br>
+
+<a href="message.xhtml">Get Message</a>
+<a href="sendMessage">Send Message</a>
 </body>
 </html>
