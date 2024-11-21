@@ -6,6 +6,9 @@
 </h:head>
 <body>
     <h:form>
+        <h:outputLabel for="filter" value="Filter (optional):" />
+        <h:inputText id="filter" value="#{messageReceiverBean.filter}" />
+
         <h:commandButton value="Update" action="#{messageReceiverBean.receiveMessage}" />
         
         <h:outputText value="Last message: #{messageReceiverBean.lastMessage}" />

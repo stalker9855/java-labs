@@ -8,9 +8,6 @@ import jakarta.jms.JMSContext;
 import jakarta.jms.JMSProducer;
 import jakarta.jms.Queue;
 
-/**
- * 
- */
 @Named
 @RequestScoped
 public class MessageSenderBean {

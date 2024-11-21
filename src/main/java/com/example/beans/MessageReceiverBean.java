@@ -23,9 +23,11 @@ public class MessageReceiverBean {
 
   private String lastMessage = "No notifications yet.";
 
+  private String filter;
+
   public void receiveMessage() {
     try (JMSContext context = connectionFactory.createContext()) {
-      JMSConsumer consumer = context.createConsumer(queue);
+      JMSConsumer consumer = context.createConsumer(queue, "filter = '" + filter + "'");
       Message message = consumer.receive(1000);
       if (message instanceof TextMessage) {
         lastMessage = ((TextMessage) message).getText();
@@ -37,11 +39,16 @@ public class MessageReceiverBean {
     }
   }
 
-public String getLastMessage() {
-	return lastMessage;
-}
+  public String getLastMessage() {
+    return lastMessage;
+  }
+
+  public String getFilter() {
+    return filter;
+  }
+
+  public void setFilter(String filter) {
+    this.filter = filter;
+  }
 
 }
-
-
-
