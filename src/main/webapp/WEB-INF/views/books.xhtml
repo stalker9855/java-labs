@@ -63,12 +63,15 @@
         <h1>Add New Book</h1>
         <form id="form" action="#{bookController.createBook}" method="post">
             <h:panelGrid columns="2">
+                <p>Title:</p>
                 <label for="title" value="Title:" />
                 <input id="title" name="title" required="true" />
 
+                <p>Description:</p>
                 <label for="description" value="Description:" />
                 <input id="description" name="description" required="true" />
 
+                <p>Author ID:</p>
                 <label for="author" value="Author ID:" />
                 <input id="author" name="author" required="true" />
             </h:panelGrid>
