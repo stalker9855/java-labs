@@ -1,5 +1,7 @@
 package com.example.entities;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
@@ -26,7 +28,7 @@ public class Book {
     private String description;
 
     @NotNull(message = "Author is required")
-    @ManyToOne
+    @OneToOne
     @JoinColumn(name = "author_id", referencedColumnName = "id")
     private Author author;
 
