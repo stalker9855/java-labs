@@ -1,0 +1,22 @@
+.card {
+    display: flex;
+    flex-direction: column; 
+    gap: 20px; 
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    width: 300px; 
+    background-color: #fff;
+}
+
+.form-fields {
+    display: flex;
+    flex-direction: column; 
+    gap: 10px; 
+}
+
+.form-buttons {
+    display: flex;
+    justify-content: flex-end; 
+    gap: 10px; 
+}

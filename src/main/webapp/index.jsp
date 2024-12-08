@@ -14,5 +14,7 @@
 
 <a href="mvc/json/books">Json</a><br>
 
+<a href="notes.xhtml">Notes</a><br>
+
 </body>
 </html>
