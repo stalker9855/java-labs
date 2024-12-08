@@ -23,13 +23,11 @@ public class TaskWebSocket {
 
     @OnMessage
     public void onMessage(String message, Session session) {
-        System.out.println("Message from client: " + message);
     }
 
     @OnClose
     public void onClose(Session session) {
         sessions.remove(session);
-        System.out.println("WebSocket connection closed: " + session.getId());
     }
 
     @OnError
