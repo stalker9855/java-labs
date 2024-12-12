@@ -16,5 +16,8 @@
 
 <a href="notes.xhtml">Notes</a><br>
 
+
+<a href="login.html">Login</a><br>
+
 </body>
 </html>
